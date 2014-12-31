@@ -18,8 +18,9 @@ class Alpha < ActiveRecord::Migration
     end
 
     create_table :transactions do |t|
-      t.references :documents
-      t.references :accounts
+      t.references :document
+      t.references :account
+      t.integer :document_line
       t.datetime :transacted_at, null: true
       t.datetime :posted_at, null: true
       t.string :description
@@ -33,6 +34,7 @@ class Alpha < ActiveRecord::Migration
       t.timestamps null: true
 
       t.index :checksum, unique: true
+      t.index [:document_id, :document_line], unique: true
     end
 
   end

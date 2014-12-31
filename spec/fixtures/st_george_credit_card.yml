@@ -1,0 +1,27 @@
+- posted_at: 18 December 2013
+  transacted_at: 15 December 2013
+  description: THIS 1 THING I LIKE
+  amount: -10
+  balance: -10
+  foreign_amount: 9
+  foreign_currency: USD
+- posted_at: 25 December 2013
+  transacted_at: 24 December 2013
+  description: XMAS PRESENTS
+  amount: -5
+  balance: -15
+- posted_at: 25 December 2013
+  transacted_at: 23 December 2013
+  description: PAYMENT
+  amount: 50
+  balance: 55
+- posted_at: 1 January 2014
+  transacted_at: 30 December 2013
+  description: HAPPY/NEW-YEAR
+  amount: -25
+  balance: 30
+- posted_at: 28 February 2014
+  transacted_at: 26 February 2014
+  description: NOT A *LEAP* YEAR
+  amount: -8030
+  balance: -8000

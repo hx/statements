@@ -4,7 +4,7 @@ module Statements
   class Database
 
     def initialize(path = nil)
-      @path = File.expand_path(ENV['DB_PATH'] || path)
+      @path = ENV['DB_PATH'] || path
       ActiveRecord::Base.establish_connection(
           adapter: 'sqlite3',
           database: @path
