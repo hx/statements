@@ -25,6 +25,9 @@ class Alpha < ActiveRecord::Migration
       t.string :description
       t.decimal :amount, precision: 2, scale: 13
       t.decimal :balance, precision: 2, scale: 13
+      t.decimal :foreign_amount, precision: 2, scale: 13
+      t.string :foreign_currency, limit: 3
+
       t.string :checksum, limit: 40
 
       t.timestamps null: true

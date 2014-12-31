@@ -5,4 +5,4 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'statements'
 
-Statements::Cli.main ARGV
+Statements::Cli.main Dir.pwd, ARGV
