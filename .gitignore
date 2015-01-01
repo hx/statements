@@ -16,3 +16,7 @@ mkmf.log
 # For IDEA:
 /.idea/
 /*.iml
+
+# For testing:
+*.sqlite3
+*.log

@@ -10,5 +10,5 @@ require 'statements/reader'
 require 'statements/database'
 
 require 'statements/models/transaction'
-
-
+require 'statements/models/account'
+require 'statements/models/document'

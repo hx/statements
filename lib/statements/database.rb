@@ -9,11 +9,8 @@ module Statements
           adapter: 'sqlite3',
           database: @path
       )
+      ActiveRecord::Base.logger = Logger.new(ENV['DB_LOG']) if ENV['DB_LOG']
       ActiveRecord::Migrator.migrate migrations_dir
-    end
-
-    def read_dir(dir)
-
     end
 
     private

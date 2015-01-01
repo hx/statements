@@ -21,6 +21,22 @@ module Statements
         reader = klass.new(pages)
         return reader if reader.valid?
       end
+      nil
+    end
+
+    def self.read_dir(dir)
+      base = Pathname(dir).realpath
+      Dir[base.join('**/*.{pdf,txt}')].each do |path|
+        rel_path = Pathname(path).relative_path_from(base)
+        print "Scanning #{rel_path} ... "
+        begin
+          doc = Document.find_or_initialize_by(path: rel_path.to_s)
+          doc.scan base: base
+          puts "#{doc.transactions.count} transaction(s) found"
+        rescue => e
+          puts "error: #{e.class.name} #{e.message}"
+        end
+      end
     end
 
     attr_reader :pages, :document

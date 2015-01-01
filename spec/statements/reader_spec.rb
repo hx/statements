@@ -51,6 +51,8 @@ module Statements
       it 'should have matching details' do
         expected.each.with_index do |e, index|
           t = subject.transactions[index]
+          expect(t.account.name).to eq 'VERTIGO MASTERCARD'
+          expect(t.account.number).to eq '1111 2222 3333 4444'
           e.each do |field, value|
             if field.end_with? '_at'
               expect(t[field]).to eq Time.parse(value)

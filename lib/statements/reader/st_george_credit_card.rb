@@ -40,12 +40,21 @@ module Statements
           tx.foreign_amount = BigDecimal foreign[0..-5]
           tx.foreign_currency = foreign[-3..-1]
         end
+        tx.set_account account_name, account_number
       end
 
       private
 
       def years
         @years ||= (pages.first =~ %r`Statement Period\s+\d\d/\d\d/(\d{4})\s+to\s+\d\d/\d\d/(\d{4})` && [$1.to_i, $2.to_i])
+      end
+
+      def account_name
+        @account_name ||= document[/^\s*(.+)\s*Statement\s*$/, 1].strip
+      end
+
+      def account_number
+        @account_number ||= document[/Account Number ([\d ]+)/, 1].strip.gsub(/\s+/, ' ')
       end
 
     end

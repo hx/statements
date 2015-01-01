@@ -11,10 +11,12 @@ class Alpha < ActiveRecord::Migration
     end
 
     create_table :accounts do |t|
-      t.string :type
+      t.string :name
       t.string :number
 
       t.timestamps null: true
+
+      t.index [:name, :number], unique: true
     end
 
     create_table :transactions do |t|
