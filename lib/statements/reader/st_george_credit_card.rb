@@ -8,7 +8,7 @@ module Statements
       include StGeorge
 
       def valid?
-        st_george? && pages.first.include?('MASTERCARD Statement')
+        st_george? && pages.first.include?('Credit Limit')
       end
 
       def self.cell_pattern

@@ -18,7 +18,7 @@ module Statements
       private
 
       def read_page(path, page)
-        `#{pdftotext_path} -table -q -f #{page} -l #{page} #{Shellwords.escape path} /dev/stdout`
+        `#{pdftotext_path} -enc UTF-8 -table -q -f #{page} -l #{page} #{Shellwords.escape path} /dev/stdout`
       end
 
       def pdftotext_path
