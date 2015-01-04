@@ -12,7 +12,7 @@ class Document < ActiveRecord::Base
         Transaction.delete_all document: self if persisted?
         reader.transactions.each do |t|
           t.document = self
-          t.save!
+          t.save! unless Transaction.find_by('checksum = ? AND document_id != ?', t.checksum!, id || 0)
         end
       end
     end

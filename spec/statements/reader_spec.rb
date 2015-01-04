@@ -57,9 +57,6 @@ module Statements
             if field.end_with? '_at'
               expect(t[field]).to eq Time.parse(value)
             else
-              if field == 'foreign_currency'
-                puts 123
-              end
               expect(t[field]).to eq value
             end
           end

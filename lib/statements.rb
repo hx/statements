@@ -8,6 +8,7 @@ require 'statements/version'
 require 'statements/cli'
 require 'statements/reader'
 require 'statements/database'
+require 'statements/pdf_reader'
 
 require 'statements/models/transaction'
 require 'statements/models/account'

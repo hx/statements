@@ -16,7 +16,7 @@ module Statements
 
     def self.for_file(file)
       file = file.to_s
-      pages = (file =~ /\.pdf$/i) ? PDF::Reader.new(file).pages.map(&:text) : [File.read(file)]
+      pages = (file =~ /\.pdf$/i) ? PdfReader.read(file) : [File.read(file)]
       classes.each do |klass|
         reader = klass.new(pages)
         return reader if reader.valid?
@@ -34,7 +34,7 @@ module Statements
           doc.scan base: base
           puts "#{doc.transactions.count} transaction(s) found"
         rescue => e
-          puts "error: #{e.class.name} #{e.message}"
+          puts "error: #{e.class.name} #{e.message}\n  #{e.backtrace.join "\n  "}"
         end
       end
     end

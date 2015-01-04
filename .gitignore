@@ -20,3 +20,4 @@ mkmf.log
 # For testing:
 *.sqlite3
 *.log
+/test*

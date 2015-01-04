@@ -1,14 +1,24 @@
 VERTIGO MASTERCARD Statement
 
-Statement Period     15/12/2013 to 14/01/2014
-Account Number       1111 2222  3333 4444
+     Statement Period     15/12/2013 to 14/01/2014
+
+     Account Number       1111 2222  3333 4444
+
 
 St.George Bank Credit Card Payment Slip
+
 ABN 33 007 457 141 AFSL 233714                                                                                    Credit
 
+
 18 Dec    15 Dec    THIS 1 THING I LIKE     $10.00        $10.00
+
                     9.00 USD
+
 25 Dec    24 Dec    XMAS PRESENTS            $5.00        $15.00
+
 25 Dec    23 Dec    PAYMENT                 $50.00 CR     $55.00 CR
+
  1 Jan    30 Dec    HAPPY/NEW-YEAR          $25.00        $30.00 CR
+
 28 Feb    26 Feb    NOT A *LEAP* YEAR    $8,030.65     $8,000.65
+

@@ -35,7 +35,6 @@ class Alpha < ActiveRecord::Migration
 
       t.timestamps null: true
 
-      t.index :checksum, unique: true
       t.index [:document_id, :document_line], unique: true
     end
 
