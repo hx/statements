@@ -74,8 +74,7 @@ module Statements
       def is_debit?(cells, page_index)
         amount_offset = cells[0..2].map(&:length).inject(:+)
         amount_center = amount_offset + cells[3].length / 2
-        debit_column_center = column_positions(page_index).inject(:+) / 2
-        amount_center < debit_column_center
+        amount_center < column_positions(page_index).last
       end
 
       def column_positions(page)
@@ -90,7 +89,7 @@ module Statements
       end
 
       def account_name
-        @account_name ||= document[/^\s*Statement\s+of\s+Account\s*(.+?)\n$/, 1].strip
+        @account_name ||= document[/^\s*Statement\s+of\s+Account\s*((?:\S\s{0,4})+)/, 1].strip
       end
 
     end

@@ -59,7 +59,6 @@ module Statements
             expect(t.account.number).to eq number
             e.each do |field, value|
               value = value.strip if String === value
-              puts "#{field} : #{value}"
               if field.end_with? '_at'
                 expect(t[field]).to eq Time.parse(value)
               else
