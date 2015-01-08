@@ -4,6 +4,8 @@ VERTIGO MASTERCARD Statement
 
      Account Number       1111 2222  3333 4444
 
+     Credit Limit         $15,000
+
 
 St.George Bank Credit Card Payment Slip
 

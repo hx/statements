@@ -1,0 +1,68 @@
+Statement of Account
+
+COMPLETE FREEDOM
+
+                                                                            BSB Number              112-879
+                                                                            Account Number          12481632
+                                                                            Statement Period        01/11/2013 to 31/11/2013
+
+
+Date    Transaction Description                                    Debit      Credit      Balance $
+
+01 NOV  OPENING BALANCE                                                                             500.00
+
+02 NOV  SIMPLE CREDIT                                                         1,234.56            1,734.56
+
+03 NOV  SIMPLE DEBIT                                               1,234.56                         500.00
+
+04 NOV  CREDIT WITH SECOND LINE                                               50.00                 550.00
+
+        SECOND LINE OF CREDIT
+
+05 NOV  CREDIT WITH THIRD LINE                                                20.00                 570.00
+
+        SECOND LINE OF CREDIT
+
+        THIRD LINE OF CREDIT
+
+06 NOV  INTERNET WITHDRAWAL 05NOV 14:06                              50.00                520.00
+
+        TO 543793100
+
+14 NOV  INTERNET DEPOSIT            13NOV 08:31                               300.00                820.00
+
+        FROM 0000485
+
+15 NOV  ATM DEPOSIT       14NOV 13:45                                         20.00                 840.00
+
+        BANK OF MELBOURNE           CHADSTONE      3 AU
+
+        SUB TOTAL CARRIED FORWARD TO NEXT PAGE                                                      840.00
+
+St.George Bank - A Division of Westpac Banking Corporation ABN 33 007 457 141 AFSL and Australian credit licence 233714.
+
+----------
+
+Date    Transaction Description                   Debit      Credit      Balance $
+
+19 NOV  VISA PURCHASE        17/11/13             10.00                            830.00
+
+        COLES TAREE          NSW
+
+        EFFECTIVE DATE       16MAR
+
+19 NOV  VISA PURCHASE O/SEAS 17/11/13             10.00                            820.00
+
+        MONEYBOOKERS LTD.
+
+        USD          9.00
+
+20 NOV  ACCOUNT SERVICE FEE                       5.00                             815.00
+
+        EFFECTIVE DATE      19NOV
+
+23 NOV  EFTPOS PURCHASE       23NOV 18:56         1.00                             814.00
+
+        HARBOUR CITY FERRIES  SYDNEY      NS
+
+31 NOV  CLOSING BALANCE                                                                814.00

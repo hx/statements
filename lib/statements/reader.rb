@@ -15,7 +15,7 @@ module Statements
 
     def self.for_file(file)
       file = file.to_s
-      pages = (file =~ /\.pdf$/i) ? PdfReader.read(file) : [File.read(file)]
+      pages = (file =~ /\.pdf$/i) ? PdfReader.read(file) : File.read(file).split(/-{5,}/)
       classes.each do |klass|
         reader = klass.new(pages)
         return reader if reader.valid?
@@ -58,11 +58,18 @@ module Statements
     end
 
     def search_for_transactions
-      scan(cell_pattern).map.with_index do |cells, index|
-        Transaction.new(document_line: index + 1).tap do |transaction|
-          parse_cells cells, transaction
+      index = 0
+      result = []
+      pages.each.with_index do |page, page_index|
+        page.scan(cell_pattern).each do |cells|
+          result << Transaction.new(document_line: index += 1).tap do |transaction|
+            args = [cells, transaction, page_index]
+            arity = method(:parse_cells).arity
+            parse_cells *args[0..(arity - 1)]
+          end
         end
       end
+      result
     end
 
   end

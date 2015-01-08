@@ -3,7 +3,7 @@
   description: THIS 1 THING I LIKE
   amount: -10
   balance: -10
-  foreign_amount: 9
+  foreign_amount: -9
   foreign_currency: USD
 - posted_at: 25 December 2013
   transacted_at: 24 December 2013

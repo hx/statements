@@ -42,24 +42,41 @@ module Statements
 
     describe 'transactions' do # TODO put this somewhere else
 
-      let(:expected) { YAML.load fixture('st_george_credit_card.yml').read }
+      shared_examples 'account' do |base, name, number|
 
-      it 'should have the right number of transactions' do
-        expect(subject.transactions.length).to be expected.length
-      end
+        subject { Reader.for_file fixture "#{base}.txt" }
 
-      it 'should have matching details' do
-        expected.each.with_index do |e, index|
-          t = subject.transactions[index]
-          expect(t.account.name).to eq 'VERTIGO MASTERCARD'
-          expect(t.account.number).to eq '1111 2222 3333 4444'
-          e.each do |field, value|
-            if field.end_with? '_at'
-              expect(t[field]).to eq Time.parse(value)
-            else
-              expect(t[field]).to eq value
+        let(:expected) { YAML.load fixture("#{base}.yml").read }
+
+        it 'should have the right number of transactions' do
+          expect(subject.transactions.length).to be expected.length
+        end
+
+        it 'should have matching details' do
+          expected.each.with_index do |e, index|
+            t = subject.transactions[index]
+            expect(t.account.name).to eq name
+            expect(t.account.number).to eq number
+            e.each do |field, value|
+              value = value.strip if String === value
+              puts "#{field} : #{value}"
+              if field.end_with? '_at'
+                expect(t[field]).to eq Time.parse(value)
+              else
+                expect(t[field]).to eq value
+              end
             end
           end
+        end
+
+      end
+
+      [
+          ['st_george_credit_card', 'VERTIGO MASTERCARD', '1111 2222 3333 4444'],
+          ['st_george_savings', 'COMPLETE FREEDOM', '12481632']
+      ].each do |args|
+        context "on #{args.first}" do
+          include_examples 'account', *args
         end
       end
 

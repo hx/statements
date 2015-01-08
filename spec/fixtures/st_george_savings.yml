@@ -1,0 +1,88 @@
+- posted_at: 2 November 2013
+  transacted_at: 2 November 2013
+  description: SIMPLE CREDIT
+  amount: 1234.56
+  balance: 1734.56
+
+- posted_at: 3 November 2013
+  transacted_at: 3 November 2013
+  description: SIMPLE DEBIT
+  amount: -1234.56
+  balance: 500
+
+- posted_at: 4 November 2013
+  transacted_at: 4 November 2013
+  description: |
+    CREDIT WITH SECOND LINE
+    SECOND LINE OF CREDIT
+  amount: 50
+  balance: 550
+
+- posted_at: 5 November 2013
+  transacted_at: 5 November 2013
+  description: |
+    CREDIT WITH THIRD LINE
+    SECOND LINE OF CREDIT
+    THIRD LINE OF CREDIT
+  amount: 20
+  balance: 570
+
+- posted_at: 6 November 2013
+  transacted_at: 5 November 2013
+  description: |
+    INTERNET WITHDRAWAL 05NOV 14:06
+    TO 543793100
+  amount: -50
+  balance: 520
+
+- posted_at: 14 November 2013
+  transacted_at: 13 November 2013
+  description: |
+    INTERNET DEPOSIT 13NOV 08:31
+    FROM 0000485
+  amount: 300
+  balance: 820
+
+- posted_at: 15 November 2013
+  transacted_at: 14 November 2013
+  description: |
+    ATM DEPOSIT 14NOV 13:45
+    BANK OF MELBOURNE CHADSTONE 3 AU
+  amount: 20
+  balance: 840
+
+- posted_at: 19 November 2013
+  transacted_at: 17 November 2013
+  description: |
+    VISA PURCHASE 17/11/13
+    COLES TAREE NSW
+    EFFECTIVE DATE 16MAR
+  amount: -10
+  balance: 830
+
+- posted_at: 19 November 2013
+  transacted_at: 17 November 2013
+  description: |
+    VISA PURCHASE O/SEAS 17/11/13
+    MONEYBOOKERS LTD.
+    USD 9.00
+  amount: -10
+  balance: 820
+  foreign_currency: USD
+  foreign_amount: -9
+
+- posted_at: 20 November 2013
+  transacted_at: 20 November 2013
+  description: |
+    ACCOUNT SERVICE FEE
+    EFFECTIVE DATE 19NOV
+  amount: -5
+  balance: 815
+
+- posted_at: 23 November 2013
+  transacted_at: 23 November 2013
+  description: |
+    EFTPOS PURCHASE 23NOV 18:56
+    HARBOUR CITY FERRIES SYDNEY NS
+  amount: -1
+  balance: 814
