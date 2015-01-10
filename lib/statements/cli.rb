@@ -7,8 +7,9 @@ module Statements
       Statements::Database.new "#{pwd}/statements.sqlite3"
       Statements::Reader.read_dir pwd
       Thin::Server.start '0.0.0.0', 57473 do
-        map('/html') { run Rack::Directory.new "#{ROOT}/lib/html" }
-        run Server.new
+        map('/q') { run Server.new }
+        use Rack::Static, urls: [''], root: "#{ROOT}/lib/html", index: 'index.html'
+        run Server
       end
     end
 
