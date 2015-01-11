@@ -1,0 +1,32 @@
+.container-fluid {
+  padding-top: 15px;
+}
+
+#content {
+
+  th {
+    padding-top: 0;
+  }
+
+  td p {
+    margin: 0;
+
+    &.small {
+      color: #666;
+    }
+  }
+
+  .amount {
+    text-align: right;
+  }
+
+  .credit .amount {
+    &:before { content: "($"; }
+    &:after { content: ")"; }
+  }
+
+  .debit .amount {
+    &:before { content: "$"; }
+  }
+
+}

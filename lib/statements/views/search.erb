@@ -1,0 +1,13 @@
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>Posted</th>
+        <th>Description</th>
+        <th class="amount">Amount</th>
+        <th><!-- Tags --></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= transactions.map { |x| Statements::Server.render 'row', x }.join %>
+    </tbody>
+</table>

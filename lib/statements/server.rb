@@ -1,4 +1,5 @@
 require 'json'
+require 'erb'
 
 module Statements
   class Server
@@ -42,8 +43,28 @@ module Statements
       js "window.accounts = #{Account.to_json}"
     end
 
+    def self.render(template, obj = nil)
+      @templates ||= {}
+      @templates[template] ||= ERB.new(File.read File.expand_path("../views/#{template}.erb", __FILE__))
+      @templates[template].result (obj || self).instance_eval { binding }
+    end
+
     def post_search_html(request)
-      html 'blah'
+      input = JSON.parse(request.body.read)
+      query = Transaction.order(input['order'])
+      query = query.where(account_id: input['accounts'])
+      query = query.where('posted_at > ? and posted_at < ?',
+                          Time.parse(input['date_start']),
+                          Time.parse(input['date_end']))
+      query = query.where('amount < 0') if input['type'] == 'debits'
+      query = query.where('amount > 0') if input['type'] == 'credits'
+      text = input['search'].strip.downcase
+      unless text.empty?
+        words = text.split(/\s+/)
+        query = query.where('lower(description) like ?', "%#{words.join '%'}%")
+      end
+      transactions = query.all
+      html self.class.render 'search', OpenStruct.new(transactions: transactions)
     end
 
   end

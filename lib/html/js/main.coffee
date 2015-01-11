@@ -21,6 +21,9 @@ query = ->
   querying = true
   query_again = false
 
+  # Clear content
+  $('#content').html 'One moment...'
+
   # Collect data
   data =
     order: $('#order').val()
@@ -39,11 +42,10 @@ query = ->
     data: JSON.stringify(data)
 
   # On success
-  req.done (result) ->
-    console.log result
+  req.done (result) -> $('#content').html result
 
   # On fail
-  req.fail ->
+  req.fail -> alert 'Query failed'
 
   # Clean up
   req.always ->
@@ -65,9 +67,22 @@ $ ->
     startView: 2
     todayBtn: 'linked'
     autoclose: true
+  .on 'changeDate', query
+
+  # Order
+  $('#order').on 'change', query
+
+  # Dates
+  $('date-range').on 'change', 'input', query
+
+  # Search
+  $('#text').on 'change keyup', query
+
+  # Account buttons
+  $accountButtons = $('#account-buttons a')
+  $accountButtons.on 'click', query
 
   # Account select all/none buttons
-  $accountButtons = $('#account-buttons a')
   $('#account-button-bulk').on 'click', 'a', (e) ->
     set = $(e.currentTarget).data('set')
     $accountButtons.toggleClass 'active', set is 'on'

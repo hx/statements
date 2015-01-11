@@ -1,3 +1,19 @@
 .container-fluid {
-    padding-top: 15px;
-}
+  padding-top: 15px; }
+
+#content th {
+  padding-top: 0; }
+#content td p {
+  margin: 0; }
+  #content td p.small {
+    color: #666; }
+#content .amount {
+  text-align: right; }
+#content .credit .amount:before {
+  content: "($"; }
+#content .credit .amount:after {
+  content: ")"; }
+#content .debit .amount:before {
+  content: "$"; }
+
+/*# sourceMappingURL=main.css.map */

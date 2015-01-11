@@ -18,6 +18,14 @@ class Transaction < ActiveRecord::Base
     self.checksum = calculate_checksum
   end
 
+  def credit?
+    amount > 0
+  end
+
+  def debit?
+    amount < 0
+  end
+
   private
 
   def calculate_checksum

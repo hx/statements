@@ -1,0 +1,16 @@
+<tr class="<%= credit? ? 'credit' : 'debit' %>">
+    <td class="date">
+        <%= posted_at.strftime '%-d %b %Y' %>
+    </td>
+    <td class="description">
+        <% desc = description.lines %>
+        <p><%= desc[0] %></p>
+        <% if desc.length > 1 %>
+            <p class="small"><%= desc[1..-1].join '<br/>' %></p>
+        <% end %>
+    </td>
+    <td class="amount"><%= ActiveSupport::NumberHelper.number_to_currency amount.abs, unit: '' %></td>
+    <td class="tags">
+
+    </td>
+</tr>
