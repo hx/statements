@@ -1,4 +1,4 @@
-<tr class="<%= credit? ? 'credit' : 'debit' %>" data-id="<%= id %>">
+<tr class="<%= credit? ? 'credit' : 'debit' %> colour-<%= colour %>" data-id="<%= id %>">
     <td class="date">
         <%= posted_at.strftime '%-d %b %Y' %>
     </td>
@@ -10,7 +10,7 @@
         <% end %>
     </td>
     <td class="amount"><%= ActiveSupport::NumberHelper.number_to_currency amount.abs, unit: '' %></td>
-    <td class="tags">
-
+    <td class="colour">
+        <a href="javascript:"></a>
     </td>
 </tr>

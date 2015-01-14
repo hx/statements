@@ -2,4 +2,5 @@
     <th></th>
     <th><%= "#{ActiveSupport::NumberHelper.number_to_delimited count} #{name.capitalize[0..-2]}#{count == 1 ? '' : 's'}" %></th>
     <td><%= ActiveSupport::NumberHelper.number_to_currency total.abs, unit: '' %></td>
+    <th></th>
 </tr>

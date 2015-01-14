@@ -30,6 +30,7 @@ class Alpha < ActiveRecord::Migration
       t.decimal :balance, precision: 2, scale: 13
       t.decimal :foreign_amount, precision: 2, scale: 13
       t.string :foreign_currency, limit: 3
+      t.string :colour, limit: 20, default: 'white'
 
       t.string :checksum, limit: 40
 
