@@ -53,7 +53,7 @@ module Statements
         lines = [cells[2].strip]
         lines += cells[5].strip.split(/\s*\n\s*/) if cells[5]
         lines.each { |line| line.gsub! /\s+/, ' ' }
-        lines.reject! { |line| line.start_with? 'SUB TOTAL CARRIED FORWARD TO NEXT PAGE' }
+        lines.reject! { |line| line.delete(' ').start_with? 'SUBTOTALCARRIEDFORWARDTONEXTPAGE' }
 
         tx.description = lines.join("\n")
 

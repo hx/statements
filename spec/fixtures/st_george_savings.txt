@@ -37,7 +37,7 @@ Date    Transaction Description                                    Debit      Cr
 
         BANK OF MELBOURNE           CHADSTONE      3 AU
 
-        SUB TOTAL CARRIED FORWARD TO NEXT PAGE                                                      840.00
+        SUB TOTALCARRIED FORWARDTO NEXTPAGE                                                      840.00
 
 St.George Bank - A Division of Westpac Banking Corporation ABN 33 007 457 141 AFSL and Australian credit licence 233714.
 
