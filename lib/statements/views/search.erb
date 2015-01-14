@@ -10,4 +10,16 @@
     <tbody>
     <%= transactions.map { |x| Statements::Server.render 'row', x }.join %>
     </tbody>
+    <tfoot>
+    <%= %w[debits credits transactions].map do |n|
+      list = __send__(n)
+      data = {
+        name: n,
+        count: list.count,
+        total: total(n)
+      }
+      Statements::Server.render 'footer', OpenStruct.new(data)
+    end.join %>
+    </tfoot>
 </table>
+<!-- fix for long response bug -->

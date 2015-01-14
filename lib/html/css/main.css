@@ -1,19 +1,21 @@
 .container-fluid {
   padding-top: 15px; }
 
-#content th {
+#content thead th {
   padding-top: 0; }
 #content td p {
   margin: 0; }
   #content td p.small {
     color: #666; }
-#content .amount {
+#content .amount,
+#content tfoot tr > * {
   text-align: right; }
 #content .credit .amount:before {
   content: "($"; }
 #content .credit .amount:after {
   content: ")"; }
-#content .debit .amount:before {
+#content .debit .amount:before,
+#content tfoot td:before {
   content: "$"; }
 
 /*# sourceMappingURL=main.css.map */

@@ -4,7 +4,7 @@
 
 #content {
 
-  th {
+  thead th {
     padding-top: 0;
   }
 
@@ -16,7 +16,8 @@
     }
   }
 
-  .amount {
+  .amount,
+  tfoot tr > * {
     text-align: right;
   }
 
@@ -25,7 +26,8 @@
     &:after { content: ")"; }
   }
 
-  .debit .amount {
+  .debit .amount,
+  tfoot td {
     &:before { content: "$"; }
   }
 

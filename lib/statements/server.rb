@@ -50,21 +50,7 @@ module Statements
     end
 
     def post_search_html(request)
-      input = JSON.parse(request.body.read)
-      query = Transaction.order(input['order'])
-      query = query.where(account_id: input['accounts'])
-      query = query.where('posted_at > ? and posted_at < ?',
-                          Time.parse(input['date_start']),
-                          Time.parse(input['date_end']))
-      query = query.where('amount < 0') if input['type'] == 'debits'
-      query = query.where('amount > 0') if input['type'] == 'credits'
-      text = input['search'].strip.downcase
-      unless text.empty?
-        words = text.split(/\s+/)
-        query = query.where('lower(description) like ?', "%#{words.join '%'}%")
-      end
-      transactions = query.all
-      html self.class.render 'search', OpenStruct.new(transactions: transactions)
+      html self.class.render 'search', Search.new(JSON.parse request.body.read)
     end
 
   end
