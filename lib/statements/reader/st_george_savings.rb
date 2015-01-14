@@ -74,18 +74,16 @@ module Statements
       def is_debit?(cells, page_index)
         amount_offset = cells[0..2].map(&:length).inject(:+)
         amount_center = amount_offset + cells[3].length / 2
-        amount_center < column_positions(page_index).last
+        amount_center < credit_threshold(page_index)
       end
 
-      def column_positions(page)
-        (@column_positions ||= {})[page] ||= find_column_positions(page)
+      def credit_threshold(page)
+        (@credit_thresholds ||= {})[page] ||= find_credit_threshold(page)
       end
 
-      def find_column_positions(page)
-        result = pages[page].scan(/^(Date\s+)(Transaction\s+De\w+\s+)(Debit\s+)/).first
-        debit = result[0].length + result[1].length
-        credit = debit + result[2].length
-        [debit, credit]
+      def find_credit_threshold(page)
+        lengths = pages[page].scan(/^(Date\s+Transaction\s+De\w+\s+)(Debit\s+Credit)/).first.map(&:length)
+        lengths.first + lengths.last / 2
       end
 
       def account_name
