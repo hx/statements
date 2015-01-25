@@ -56,10 +56,16 @@ query = ->
 query = _.debounce(query, 300)
 
 $ ->
-  # Set the date range to today only
+  # Set the date range to last financial year
   months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split ' '
-  now = new Date
-  $('#date-range input').val "#{now.getDate()} #{months[now.getMonth()]} #{now.getFullYear()}"
+  range = end: new Date
+  range.end.setDate 1
+  range.end.setMonth range.end.getMonth() - 1 until range.end.getMonth() is 6
+  range.start = new Date(range.end)
+  range.start.setFullYear range.start.getFullYear() - 1
+  range.end.setDate range.end.getDate() - 1
+
+  $("#date-#{k}").val "#{i.getDate()} #{months[i.getMonth()]} #{i.getFullYear()}" for k, i of range
 
   # Set up the date picker
   $('.input-daterange').datepicker
