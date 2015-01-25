@@ -36,7 +36,7 @@ module Statements
     end
 
     def html(html)
-      serve 'text/html', html
+      serve 'text/html; charset=UTF-8', html
     end
 
     def get_accounts_js(request)
@@ -51,6 +51,18 @@ module Statements
 
     def post_search_html(request)
       html self.class.render 'search', Search.new(JSON.parse request.body.read)
+    end
+
+    def post_colour_json(request)
+      input = JSON.parse(request.body.read)
+      transaction = Transaction.find(input['id']) rescue false
+      if transaction
+        transaction.colour = input['colour']
+        transaction.save
+        json success: true
+      else
+        400
+      end
     end
 
   end

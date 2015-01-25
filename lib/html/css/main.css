@@ -17,8 +17,47 @@
 #content .debit .amount:before,
 #content tfoot td:before {
   content: "$"; }
+#content tr.colour-white {
+  background: white; }
+#content tr.colour-red {
+  background: #ffefef; }
+#content tr.colour-yellow {
+  background: #ffffd7; }
+#content tr.colour-green {
+  background: #e9fce7; }
+#content tr.colour-blue {
+  background: #ebeffd; }
+#content tr.colour-cyan {
+  background: #e1f7f7; }
+#content tr.colour-magenta {
+  background: #fbefff; }
+#content tr > td,
+#content tr > th {
+  background: inherit; }
+#content tr.colour-white a.picker,
+#content li.colour-white a {
+  background: white; }
+#content tr.colour-red a.picker,
+#content li.colour-red a {
+  background: #a13f3e; }
+#content tr.colour-green a.picker,
+#content li.colour-green a {
+  background: #3f9d5a; }
+#content tr.colour-blue a.picker,
+#content li.colour-blue a {
+  background: #48609d; }
+#content tr.colour-cyan a.picker,
+#content li.colour-cyan a {
+  background: #99d7ff; }
+#content tr.colour-magenta a.picker,
+#content li.colour-magenta a {
+  background: #af6bd7; }
+#content tr.colour-yellow a.picker,
+#content li.colour-yellow a {
+  background: #e9d543; }
 #content td.colour {
-  width: 20px; }
+  width: 20px;
+  position: relative; }
   #content td.colour a {
     display: block;
     border: 1px solid #eee;
@@ -27,6 +66,25 @@
     height: 20px; }
     #content td.colour a:hover {
       border-color: #ddd; }
+  #content td.colour ul {
+    list-style: none;
+    position: absolute;
+    display: block;
+    right: 100%;
+    top: 1px;
+    margin-bottom: 0;
+    width: 167px;
+    text-align: right;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 50px;
+    padding: 3px;
+    height: 28px; }
+    #content td.colour ul li {
+      display: inline-block;
+      margin-right: 3px; }
+      #content td.colour ul li:last-child {
+        margin-right: 0; }
 
 footer {
   font-size: .8em;

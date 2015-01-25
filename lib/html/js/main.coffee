@@ -1,3 +1,6 @@
+# List of colour literals
+COLOURS = 'white red yellow green blue cyan magenta'.split ' '
+
 # Populates the list of bank accounts in the sidebar
 window.populate_accounts = (id) ->
   $el = $(id)
@@ -8,6 +11,14 @@ window.populate_accounts = (id) ->
     a.append $('<span class="small">').text(account.number)
     a.data id: account.id
     $el.append a
+
+# AJAX layer
+post = (page, data) -> $.ajax
+  url: "q/#{page}"
+  method: 'post'
+  contentType: 'application/json; charset=UTF-8'
+  dataType: page.match(/[^.]+$/)[0]
+  data: JSON.stringify data
 
 # Method to query the database
 querying = false
@@ -24,22 +35,14 @@ query = ->
   # Clear content
   $('#content').html 'One moment...'
 
-  # Collect data
-  data =
+  # Submit data
+  req = post 'search.html',
     order: $('#order').val()
     date_start: $('#date-start').val()
     date_end: $('#date-end').val()
     search: $('#text').val()
     type: $('#type .active').data 'type'
     accounts: $('#account-buttons .active').map(-> $(@).data 'id').toArray()
-
-  # Submit data
-  req = $.ajax
-    url: 'q/search.html'
-    method: 'post'
-    contentType: 'application/json; charset=UTF-8'
-    dataType: 'html'
-    data: JSON.stringify(data)
 
   # On success
   req.done (result) -> $('#content').html result
@@ -54,6 +57,11 @@ query = ->
 
 # Pad querying out a bit
 query = _.debounce(query, 300)
+
+# Method to change a transaction's colour
+setColour = (transactionId, colour) -> post 'colour.json',
+  id: transactionId
+  colour: colour
 
 $ ->
   # Set the date range to last financial year
@@ -100,6 +108,35 @@ $ ->
     return if $(e.currentTarget).hasClass 'active'
     $typeButtons.each -> $(this).toggleClass 'active', this is e.currentTarget
     query()
+
+  # Handler for blurring colour pickers
+  $picker = null
+  $('body').on 'click', (e) ->
+    target = e.currentTarget
+    closePicker() unless $picker and (target is $picker[0] or $picker.find(target)[0])
+
+  # Method to remove colour picker
+  closePicker = ->
+    $picker.remove() if $picker
+    $picker = null
+
+  # Handlers for clicks on colour pickers
+  $('#content').on 'click', 'td.colour a.picker', (e) ->
+    e.stopPropagation()
+    closePicker()
+    $tr = $(e.currentTarget).parents('tr').first()
+    $td = $tr.find('td.colour')
+    $picker = $('<ul class="colours">')
+    $picker.append $('<li>').addClass("colour-#{i}").append('<a href="javascript:">') for i in COLOURS
+    $picker.appendTo $td
+    $picker.on 'click', 'a', (e) ->
+      $li = $(e.currentTarget).parents('li').first()
+      colour = $li[0].className.match(/colour-(\w+)/)[1]
+      op = setColour $tr.data('id'), colour
+      op.fail -> alert 'Something went wrong. Try reloading?'
+      op.done -> $tr[0].className = $tr[0].className.replace /colour-\w+/, "colour-#{colour}"
+      closePicker()
+
 
   # Do an initial query
   query()

@@ -1,3 +1,12 @@
+// Colours
+$white: white;      $light-white: white;
+$red: #a13f3e;      $light-red: #ffefef;
+$yellow: #e9d543;   $light-yellow: #ffffd7;
+$green: #3f9d5a;    $light-green: #e9fce7;
+$blue: #48609d;     $light-blue: #ebeffd;
+$cyan: #99d7ff;     $light-cyan: #e1f7f7;
+$magenta: #af6bd7;  $light-magenta: #fbefff;
+
 .container-fluid {
   padding-top: 15px;
 }
@@ -31,8 +40,72 @@
     &:before { content: "$"; }
   }
 
+  tr {
+    &.colour-white {
+      background: $light-white;
+    }
+    &.colour-red {
+      background: $light-red;
+    }
+    &.colour-yellow {
+      background: $light-yellow;
+    }
+    &.colour-green {
+      background: $light-green;
+    }
+    &.colour-blue {
+      background: $light-blue;
+    }
+    &.colour-cyan {
+      background: $light-cyan;
+    }
+    &.colour-magenta {
+      background: $light-magenta;
+    }
+    > td,
+    > th {
+      background: inherit;
+    }
+  }
+
+  tr.colour-white a.picker,
+  li.colour-white a {
+    background: $white;
+  }
+
+  tr.colour-red a.picker,
+  li.colour-red a {
+    background: $red;
+  }
+
+  tr.colour-green a.picker,
+  li.colour-green a {
+    background: $green;
+  }
+
+  tr.colour-blue a.picker,
+  li.colour-blue a {
+    background: $blue;
+  }
+
+  tr.colour-cyan a.picker,
+  li.colour-cyan a {
+    background: $cyan;
+  }
+
+  tr.colour-magenta a.picker,
+  li.colour-magenta a {
+    background: $magenta;
+  }
+
+  tr.colour-yellow a.picker,
+  li.colour-yellow a {
+    background: $yellow;
+  }
+
   td.colour {
     width: 20px;
+    position: relative;
 
     a {
       display: block;
@@ -43,6 +116,31 @@
 
       &:hover {
         border-color: #ddd;
+      }
+    }
+
+    ul {
+      list-style: none;
+      position: absolute;
+      display: block;
+      right: 100%;
+      top: 1px;
+      margin-bottom: 0;
+      width: 167px;
+      text-align: right;
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 50px;
+      padding: 3px;
+      height: 28px;
+
+      li {
+        display: inline-block;
+        margin-right: 3px;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
