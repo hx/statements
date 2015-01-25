@@ -28,4 +28,9 @@
     #content td.colour a:hover {
       border-color: #ddd; }
 
+footer {
+  font-size: .8em;
+  text-align: center;
+  padding: 20px 0; }
+
 /*# sourceMappingURL=main.css.map */
