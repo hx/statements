@@ -35,6 +35,7 @@ module Statements
                           Time.parse(input['date_end']))
       query = query.where('amount < 0') if input['type'] == 'debits'
       query = query.where('amount > 0') if input['type'] == 'credits'
+      query = query.where(colour: input['colours'])
       text = input['search'].strip.downcase
       unless text.empty?
         words = text.split(/\s+/)

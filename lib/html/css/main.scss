@@ -11,6 +11,25 @@ $magenta: #af6bd7;  $light-magenta: #fbefff;
   padding-top: 15px;
 }
 
+#colour {
+  a {
+    &:before {
+      content: "";
+      border: 1px solid transparent;
+      padding:6px;
+      display: block;
+      border-radius: 15px;
+    }
+    &.colour-white:before { background: $white; }
+    &.colour-red:before { background: $red; }
+    &.colour-yellow:before { background: $yellow; }
+    &.colour-green:before { background: $green; }
+    &.colour-cyan:before { background: $cyan; }
+    &.colour-blue:before { background: $blue; }
+    &.colour-magenta:before { background: $magenta; }
+  }
+}
+
 #content {
 
   thead th {

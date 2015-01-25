@@ -1,5 +1,5 @@
 # List of colour literals
-COLOURS = 'white red yellow green blue cyan magenta'.split ' '
+COLOURS = 'white red yellow green cyan blue magenta'.split ' '
 
 # Populates the list of bank accounts in the sidebar
 window.populate_accounts = (id) ->
@@ -43,6 +43,7 @@ query = ->
     search: $('#text').val()
     type: $('#type .active').data 'type'
     accounts: $('#account-buttons .active').map(-> $(@).data 'id').toArray()
+    colours: $('#colour .active').map(-> @className.match(/colour-(\w+)/)[1]).toArray()
 
   # On success
   req.done (result) -> $('#content').html result
@@ -91,6 +92,9 @@ $ ->
 
   # Search
   $('#text').on 'change keyup', query
+
+  # Colours
+  $('#colour').on 'click', 'a', query
 
   # Account buttons
   $accountButtons = $('#account-buttons a')

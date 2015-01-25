@@ -1,6 +1,27 @@
 .container-fluid {
   padding-top: 15px; }
 
+#colour a:before {
+  content: "";
+  border: 1px solid transparent;
+  padding: 6px;
+  display: block;
+  border-radius: 15px; }
+#colour a.colour-white:before {
+  background: white; }
+#colour a.colour-red:before {
+  background: #a13f3e; }
+#colour a.colour-yellow:before {
+  background: #e9d543; }
+#colour a.colour-green:before {
+  background: #3f9d5a; }
+#colour a.colour-cyan:before {
+  background: #99d7ff; }
+#colour a.colour-blue:before {
+  background: #48609d; }
+#colour a.colour-magenta:before {
+  background: #af6bd7; }
+
 #content thead th {
   padding-top: 0; }
 #content td p {
