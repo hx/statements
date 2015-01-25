@@ -1,31 +1,22 @@
 # Statements
 
-TODO: Write a gem description
+Builds a database of bank account transaction history by reading PDF bank statements, and provides a simple web interface for browsing data.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'statements'
+```bash
+$ gem install statements
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install statements
 
 ## Usage
 
-TODO: Write usage instructions here
+1. `cd` to a directory containing all your bank statements.
+2. Run `statements` and wait for new statements to be parsed.
+3. Open `http://localhost:57473` in a browser.
 
-## Contributing
+## Supported banks
 
-1. Fork it ( https://github.com/[my-github-username]/statements/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+- St. George Credit Cards
+- St. George Cash Accounts
+
+The list is small. Want it to grow? Send a pull request!
