@@ -26,9 +26,9 @@ class Alpha < ActiveRecord::Migration
       t.datetime :transacted_at, null: true
       t.datetime :posted_at, null: true
       t.string :description
-      t.decimal :amount, precision: 2, scale: 13
-      t.decimal :balance, precision: 2, scale: 13
-      t.decimal :foreign_amount, precision: 2, scale: 13
+      t.decimal :amount, precision: 13, scale: 2
+      t.decimal :balance, precision: 13, scale: 2
+      t.decimal :foreign_amount, precision: 13, scale: 2
       t.string :foreign_currency, limit: 3
       t.string :colour, limit: 20, default: 'white'
 
