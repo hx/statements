@@ -64,6 +64,15 @@ setColour = (transactionId, colour) -> post 'colour.json',
   id: transactionId
   colour: colour
 
+setColours = (transactionIds, colour) ->
+  [transactionId, rest...] = transactionIds
+  op = setColour transactionId, colour
+  op.fail -> alert 'Something went wrong. Try reloading?'
+  op.done ->
+    $tr = $("tr[data-id=#{transactionId}]")
+    $tr[0].className = $tr[0].className.replace /colour-\w+/, "colour-#{colour}" if $tr[0]
+    setColours rest, colour if rest[0]
+
 $ ->
   # Set the date range to last financial year
   months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split ' '
@@ -134,13 +143,13 @@ $ ->
     $picker.append $('<li>').addClass("colour-#{i}").append('<a href="javascript:">') for i in COLOURS
     $picker.appendTo $td
     $picker.on 'click', 'a', (e) ->
+      closePicker()
       $li = $(e.currentTarget).parents('li').first()
       colour = $li[0].className.match(/colour-(\w+)/)[1]
-      op = setColour $tr.data('id'), colour
-      op.fail -> alert 'Something went wrong. Try reloading?'
-      op.done -> $tr[0].className = $tr[0].className.replace /colour-\w+/, "colour-#{colour}"
-      closePicker()
-
+      if e.shiftKey
+        setColours (x.dataset.id for x in $tr.parent().children()), colour
+      else
+        setColours $tr.data('id'), colour
 
   # Do an initial query
   query()
