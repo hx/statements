@@ -13,6 +13,8 @@
 *.a
 mkmf.log
 *.gem
+/node_modules
+/package-lock.json
 
 # For IDEA:
 /.idea/
