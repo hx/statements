@@ -149,7 +149,7 @@ $ ->
       if e.shiftKey
         setColours (x.dataset.id for x in $tr.parent().children()), colour
       else
-        setColours $tr.data('id'), colour
+        setColours [$tr.data('id')], colour
 
   # Do an initial query
   query()
