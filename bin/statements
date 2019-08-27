@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
+require 'bundler'
 
-lib = File.expand_path('../../lib', __FILE__)
-$:.unshift lib unless $:.include? lib
+wd   = Dir.pwd
+base = File.expand_path('..', __dir__)
+
+Dir.chdir base
+Bundler.setup
 
 require 'statements'
 
-Statements::Cli.main Dir.pwd, ARGV
+Statements::Cli.main wd, ARGV
