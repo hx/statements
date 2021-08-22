@@ -8,6 +8,10 @@ Builds a database of bank account transaction history by reading PDF bank statem
 $ gem install statements
 ```
 
+## Dependencies
+
+- [`pdftotext`](http://www.foolabs.com/xpdf/download.html) for readying PDF statements.
+
 ## Usage
 
 1. `cd` to a directory containing all your bank statements.
