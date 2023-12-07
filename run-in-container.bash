@@ -8,6 +8,6 @@ docker build \
   .
 docker run --rm -it \
   --platform linux/amd64 \
-  -p "57473:57473" \
+  -p "127.0.0.1:57473:57473" \
   -v "$STATEMENTS_DIR:/wd" \
   statements
